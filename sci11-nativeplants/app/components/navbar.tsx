@@ -1,48 +1,53 @@
-import { PageId, PLANTS } from "../type";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { PLANTS } from "../type";
 
 interface NavbarProps {
-  currentPage: PageId;
   foundPlants: Record<number, boolean>;
-  onNavigate: (page: PageId) => void;
 }
 
-export function Navbar({ currentPage, foundPlants, onNavigate }: NavbarProps) {
+export function Navbar({ foundPlants }: NavbarProps) {
+  const pathname = usePathname();
   const foundCount = Object.keys(foundPlants).length;
+
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="sticky top-0 z-20 bg-[#ECE5D2]/90 backdrop-blur-md border-b-2 border-dashed border-[#8FA876]">
       <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-2.5 px-5 py-2.5 flex-wrap">
-        <button 
-          onClick={() => onNavigate("landing")} 
+        <Link 
+          href="/" 
           className="font-fraunces font-bold text-[#2A4027] text-lg no-underline bg-transparent border-0 cursor-pointer text-left"
         >
           ✿ UP BAGUIO FLORACLE
-        </button>
+        </Link>
         <nav className="flex gap-1 items-center flex-wrap" aria-label="Main">
-          <button 
-            onClick={() => onNavigate("landing")} 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${currentPage === "landing" ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
+          <Link 
+            href="/" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/") ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
           >
             Home
-          </button>
-          <button 
-            onClick={() => onNavigate("map")} 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${currentPage === "map" || currentPage === "quiz" ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
+          </Link>
+          <Link 
+            href="/campus-map" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/campus-map") ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
           >
-            Map & Quiz
-          </button>
-          <button 
-            onClick={() => onNavigate("plants")} 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${currentPage === "plants" || currentPage === "plant" ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
+            Campus Map
+          </Link>
+          <Link 
+            href="/plant-list" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/plant-list") ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
           >
             Plants
-          </button>
-          <button 
-            onClick={() => onNavigate("about")} 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${currentPage === "about" ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
+          </Link>
+          <Link 
+            href="/about-us" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/about") ? "bg-[#4D683E] text-white" : "text-[#53614E] hover:bg-[#D5E2C8] hover:text-[#2A4027]"}`}
           >
             About
-          </button>
+          </Link>
           <span className="ml-1.5 px-3 py-1 rounded-full bg-[#C25936] text-white font-bold text-xs" title="Plants discovered">
             ✿ {foundCount}/{PLANTS.length}
           </span>
