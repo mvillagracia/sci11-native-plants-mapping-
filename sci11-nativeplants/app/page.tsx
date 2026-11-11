@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { PLANTS } from "./type";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
 import Link from "next/link";
-import { Compass, Sparkles, BookOpen, ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [foundPlants, setFoundPlants] = useState<Record<number, boolean>>({});
@@ -48,7 +46,7 @@ export default function Home() {
             
             <div className="max-w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-8 items-center">
               <div className="space-y-4">
-                <span className="inline-block px-4 py-1 rounded-full bg-[#D5E2C8] border border-[#8FA876] text-[#2A4027] text-xs font-bold tracking-widest uppercase">
+                <span className="inline-block px-4 py-1 pt-2 rounded-full bg-[#D5E2C8]/10 border border-[#8FA876] text-[#2A4027] text-xs font-bold tracking-widest uppercase">
                   University of the Philippines Baguio
                 </span>
                 <h1 className="font-fraunces text-4xl sm:text-6xl font-bold text-[#2A4027] leading-[1.02]">

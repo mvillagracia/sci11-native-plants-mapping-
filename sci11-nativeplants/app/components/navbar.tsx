@@ -48,9 +48,9 @@ export function Navbar({ foundPlants }: NavbarProps) {
           >
             About
           </Link>
-          <span className="ml-1.5 px-3 py-1 rounded-full bg-[#C25936] text-white font-bold text-xs" title="Plants discovered">
+          {/* <span className="ml-1.5 px-3 py-1 rounded-full bg-[#C25936] text-white font-bold text-xs" title="Plants discovered">
             ✿ {foundCount}/{PLANTS.length}
-          </span>
+          </span> */}
         </nav>
       </div>
     </header>

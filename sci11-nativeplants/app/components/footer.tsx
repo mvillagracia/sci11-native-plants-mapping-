@@ -16,10 +16,7 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-start md:items-end lg:items-center gap-2 text-[11px] text-[#697863]">
           <div>
-            © {new Date().getFullYear()} University of the Philippines Baguio · Cordillera Native Flora Herbarium Project.
-          </div>
-          <div className="font-mono text-[10px] text-[#7A8A74]">
-            Digital Herbarium Specimen Archive · Minimalist Natural Edition
+            <b>© 2026 University of the Philippines Baguio</b> · SCIENCE 11 Z Students.
           </div>
         </div>
       </div>
