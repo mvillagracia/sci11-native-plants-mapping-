@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2 text-sm font-bold text-[#3D2B20]">
             <Trees className="w-4 h-4 text-[#68752B]" />
-            <span>UP Baguio Native Flora Initiative</span>
+            <span>UP Baguio Floracle</span>
           </div>
           <p className="mt-1 text-xs text-[#5A4739] max-w-md">
             University of the Philippines Baguio · Governor Pack Road, Baguio City, Benguet, Philippines.
