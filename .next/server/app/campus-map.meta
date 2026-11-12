@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/07a39a8a4660cc7c-s.p.0r6juujl39pe6.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </map2.png>; rel=preload; as=\"image\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/campus-map/layout,_N_T_/campus-map/page,_N_T_/campus-map"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/campus-map/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/994b42555b1cb59325af7f15bf8e22c2f1f6e7cb32d7885d507017fff485099d/$/campus-map",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/campus-map/page"
+    },
+    "isFallback": false
+  }
+}
