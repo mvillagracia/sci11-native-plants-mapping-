@@ -16,7 +16,7 @@ export function Navbar({ foundPlants }: NavbarProps) {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="sticky top-0 z-20 bg-ybiege/70 backdrop-blur-md border-b-2 border-dashed border-[#9A7A45]">
+    <header className="sticky top-0 z-20 bg-ybeige/70 backdrop-blur-md border-b-2 border-dashed border-[#9A7A45]">
       <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-2.5 px-5 py-2.5 flex-wrap">
         <Link 
           href="/" 
@@ -43,6 +43,12 @@ export function Navbar({ foundPlants }: NavbarProps) {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all no-underline border border-ybrown ${isActive("/campus-map") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20] hover:border hover:border-ybrown"}`}
           >
             Campus Map
+          </Link>
+          <Link
+            href="/references"
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all no-underline border border-ybrown ${isActive("/references") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20] hover:border hover:border-ybrown"}`}
+          >
+            References
           </Link>
 
           {/* <Link 
