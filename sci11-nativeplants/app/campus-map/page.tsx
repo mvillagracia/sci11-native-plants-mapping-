@@ -174,8 +174,10 @@ export default function CampusMap() {
 
   const [activePinId, setActivePinId] = useState<number | null>(null);
   const [feedback, setFeedback] = useState("");
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const activePin = pins.find((p) => p.id === activePinId);
+  const activePlant = activePin ? PLANTS[activePin.id - 1] : undefined;
 
   const handleAnswerSubmit = (option: string) => {
     if (!activePin) return;
@@ -198,6 +200,7 @@ export default function CampusMap() {
       setTimeout(() => {
         setActivePinId(null);
         setFeedback("");
+        setIsQuizOpen(false);
       }, 1200);
     } else {
       setFeedback("Incorrect answer. Try again!");
@@ -216,12 +219,12 @@ export default function CampusMap() {
     >
       <Navbar foundPlants={{}} />
       <main className="flex-1 w-full max-w-[1100px] mx-auto px-5 py-10">
-        <div>
+        <div className="mb-5">
           <h2 className="font-fraunces text-3xl sm:text-4xl font-bold text-[#3D2B20] m-0">
             Locate the Plants
           </h2>
           <p className="text-sm text-[#5A4739] m-0 mt-1 max-w-[60ch]">
-            Find the plants in our campus; who knows, maybe you&apos;ll find
+            Find the plants in our campus; who knows, maybe you'll find
             something more?
           </p>
         </div>
@@ -245,6 +248,7 @@ export default function CampusMap() {
                 onClick={() => {
                   setActivePinId(pin.id);
                   setFeedback("");
+                  setIsQuizOpen(false);
                 }}
                 style={{
                   position: "absolute",
@@ -269,50 +273,102 @@ export default function CampusMap() {
 
       {activePin && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center p-4 z-50">
-          <div className="bg-[#F5F0E1] backdrop-blur p-6 rounded-[26px] shadow-2xl border-2 border-[#3D2B20] max-w-sm w-full relative">
+          <div className="bg-[#F5F0E1] backdrop-blur p-6 rounded-[26px] shadow-2xl border-2 border-[#3D2B20] max-w-lg w-full max-h-[85vh] overflow-y-auto relative">
             <button
-              onClick={() => setActivePinId(null)}
+              onClick={() => {
+                setActivePinId(null);
+                setIsQuizOpen(false);
+                setFeedback("");
+              }}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 font-bold text-sm px-2 py-1"
+              aria-label="Close plant popup"
             >
               <IoClose size={20} />
             </button>
 
-            <h3 className="font-bold text-base text-[#3D2B20] mb-2 pr-6">
-              Location {activePin.id}: {activePin.name}
+            <h3 className="mb-2 flex items-baseline justify-between gap-3 pr-6">
+              <span className="text-lg font-bold text-[#3D2B20]">
+                {isQuizOpen
+                  ? `Location ${activePin.id}: ${activePin.name}`
+                  : activePin.name}
+              </span>
+              {!isQuizOpen && activePlant && (
+                <span className="text-m italic font-normal text-[#68752B]">
+                  {activePlant.s}
+                </span>
+              )}
             </h3>
 
-            {activePin.isCompleted ? (
-              <div className="font-medium py-4 text-sm text-justify justify-center">
-                <p>
-                  {activePin.question}
-                  <br />
-                  Answer: {activePin.correctAnswer}
-                </p>
-                <img
-                  src={`/fairy/fairy${activePin.id}.png`}
-                  alt={`${activePin.name} Fairy`}
-                  className="w-full h-auto"
-                />
-                {/* <p className="text-green-700 font-medium py-4 text-sm text-center">
-                  You have already unlocked and completed this location!
-                </p> */}
+            {!isQuizOpen ? (
+              <div className="space-y-4 text-sm text-[#5A4739]">
+                {activePlant && (
+                  <>
+                    <section className="mt-4">
+                      <h4 className="font-semibold text-[#3D2B20]">
+                        Description
+                      </h4>
+                      <p>{activePlant.d}</p>
+                    </section>
+                    <section>
+                      <h4 className="font-semibold text-[#3D2B20]">
+                        Ecological Function
+                      </h4>
+                      <p>{activePlant.e}</p>
+                    </section>
+                    <section>
+                      <h4 className="font-semibold text-[#3D2B20]">Uses</h4>
+                      <p>{activePlant.u}</p>
+                    </section>
+                    <section>
+                      <h4 className="font-semibold text-[#3D2B20]">Location</h4>
+                      <p>{activePlant.l}</p>
+                      <p>{activePlant.c}</p>
+                    </section>
+                  </>
+                )}
+                <button
+                  onClick={() => setIsQuizOpen(true)}
+                  className="w-full rounded-xl bg-[#68752B] px-4 py-3 font-semibold text-white transition-colors hover:bg-[#536022]"
+                >
+                  {activePin.isCompleted ? "Review the quiz" : "Take the quiz"}
+                </button>
               </div>
             ) : (
               <div>
                 <p className="text-xs sm:text-sm font-medium mb-4 text-[#5A4739]">
                   {activePin.question}
                 </p>
-                <div className="flex flex-col gap-2">
-                  {activePin.options.map((opt, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleAnswerSubmit(opt)}
-                      className="p-2.5 text-left text-xs sm:text-sm rounded-xl border-2 border-[#9A7A45]/40 hover:bg-[#B7BF72]/30 transition-colors font-medium text-[#3D2B20]"
-                    >
-                      {opt}
-                    </button>
-                  ))}
-                </div>
+                {activePin.isCompleted ? (
+                  <div className="font-medium text-sm text-[#5A4739]">
+                    <p>Answer: {activePin.correctAnswer}</p>
+                    <img
+                      src={`/fairy/fairy${activePin.id}.png`}
+                      alt={`${activePin.name} Fairy`}
+                      className="mx-auto max-h-64 w-auto"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-2">
+                    {activePin.options.map((opt, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleAnswerSubmit(opt)}
+                        className="p-2.5 text-left text-xs sm:text-sm rounded-xl border-2 border-[#9A7A45]/40 hover:bg-[#B7BF72]/30 transition-colors font-medium text-[#3D2B20]"
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                <button
+                  onClick={() => {
+                    setIsQuizOpen(false);
+                    setFeedback("");
+                  }}
+                  className="mt-4 text-sm font-semibold text-[#68752B] underline underline-offset-2"
+                >
+                  Back to plant information
+                </button>
               </div>
             )}
 
