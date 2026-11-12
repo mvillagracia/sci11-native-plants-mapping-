@@ -6,7 +6,7 @@ import { useState } from "react";
 import { PLANTS } from "../type";
 // Icons
 import { FaCheck } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
+import { X } from "lucide-react";
 
 export default function CampusMap() {
   const [pins, setPins] = useState([
@@ -213,7 +213,7 @@ export default function CampusMap() {
       style={{
         backgroundImage:
           "radial-gradient(circle at 10% 8%, rgba(183,191,114,.28), transparent 38%), radial-gradient(circle at 92% 30%, rgba(201,149,69,.18), transparent 40%)",
-        backgroundColor: "#F5F0E1",
+        backgroundColor: "#f2e9d5",
         backgroundAttachment: "fixed",
       }}
     >
@@ -229,8 +229,8 @@ export default function CampusMap() {
           </p>
         </div>
 
-        <div className="relative block mx-auto rounded-[26px] border-2 border-[#3D2B20] overflow-hidden max-w-4xl w-full shadow-[0_10px_24px_rgba(61,43,32,0.18)]">
-          <img src="/map2.png" alt="UPB Campus Map" className="w-full h-auto" />
+        <div className="relative block mx-auto rounded-[30px] border-4 border-[#2B140C] bg-[#E8D8C0] p-2 overflow-hidden max-w-4xl w-full shadow-[0_10px_0_#9A7A45,0_16px_24px_rgba(43,20,12,0.18)]">
+          <img src="/map2.png" alt="UPB Campus Map" className="w-full h-auto rounded-[20px] border-2 border-[#9A7A45]" />
 
           {pins.map((pin) => {
             let bgClass = "bg-[#9A7A45] cursor-not-allowed";
@@ -256,7 +256,7 @@ export default function CampusMap() {
                   top: `${pin.y}%`,
                   transform: "translate(-50%, -50%)",
                 }}
-                className={`${bgClass} text-[#3D2B20] border-2 border-[#3D2B20] rounded-full w-5 h-5 text-[9px] md:w-8 md:h-8 md:text-sm flex items-center justify-center font-bold shadow-lg`}
+                className={`${bgClass} text-[#2B140C] border-2 border-[#2B140C] rounded-full w-5 h-5 text-[9px] md:w-8 md:h-8 md:text-sm flex items-center justify-center font-bold shadow-[0_3px_0_rgba(43,20,12,0.5)]`}
                 title={
                   pin.isUnlocked
                     ? `${pin.id}: ${pin.name}`
@@ -272,54 +272,54 @@ export default function CampusMap() {
       <Footer />
 
       {activePin && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center p-4 z-50">
-          <div className="bg-[#F5F0E1] backdrop-blur p-6 rounded-[26px] shadow-2xl border-2 border-[#3D2B20] max-w-lg w-full max-h-[85vh] overflow-y-auto relative">
+        <div className="fixed inset-0 bg-[#2B140C]/65 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-[#F5F0E1] p-6 rounded-[30px] shadow-[0_10px_0_#9A7A45,0_18px_40px_rgba(43,20,12,0.3)] border-4 border-[#2B140C] max-w-lg w-full max-h-[85vh] overflow-y-auto relative">
             <button
               onClick={() => {
                 setActivePinId(null);
                 setIsQuizOpen(false);
                 setFeedback("");
               }}
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 font-bold text-sm px-2 py-1"
+              className="absolute cursor-pointer right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#E8D8C0] text-xl font-bold text-[#2B140C] shadow-[0_3px_0_#9A7A45] hover:bg-[#68752B] hover:text-[#F5F0E1] hover:shadow-[0_3px_0_#2B140C] transition-all"
               aria-label="Close plant popup"
             >
-              <IoClose size={20} />
+              <X size={15} />
             </button>
 
             <h3 className="mb-2 flex items-baseline justify-between gap-3 pr-6">
-              <span className="text-lg font-bold text-[#3D2B20]">
+              <span className="font-fraunces text-2xl font-bold text-[#2B140C]">
                 {isQuizOpen
                   ? `Location ${activePin.id}: ${activePin.name}`
                   : activePin.name}
               </span>
               {!isQuizOpen && activePlant && (
-                <span className="text-m italic font-normal text-[#68752B]">
+                <span className="text-sm italic font-normal text-[#68752B]">
                   {activePlant.s}
                 </span>
               )}
             </h3>
 
             {!isQuizOpen ? (
-              <div className="space-y-4 text-sm text-[#5A4739]">
+              <div className="space-y-3 text-sm text-[#5A4739]">
                 {activePlant && (
                   <>
-                    <section className="mt-4">
+                    <section className="mt-4 rounded-2xl border border-[#9A7A45]/40 bg-[#E8D8C0]/45 p-3">
                       <h4 className="font-semibold text-[#3D2B20]">
                         Description
                       </h4>
                       <p>{activePlant.d}</p>
                     </section>
-                    <section>
+                    <section className="rounded-2xl border border-[#9A7A45]/40 bg-[#E8D8C0]/45 p-3">
                       <h4 className="font-semibold text-[#3D2B20]">
                         Ecological Function
                       </h4>
                       <p>{activePlant.e}</p>
                     </section>
-                    <section>
+                    <section className="rounded-2xl border border-[#9A7A45]/40 bg-[#E8D8C0]/45 p-3">
                       <h4 className="font-semibold text-[#3D2B20]">Uses</h4>
                       <p>{activePlant.u}</p>
                     </section>
-                    <section>
+                    <section className="rounded-2xl border border-[#9A7A45]/40 bg-[#E8D8C0]/45 p-3">
                       <h4 className="font-semibold text-[#3D2B20]">Location</h4>
                       <p>{activePlant.l}</p>
                       <p>{activePlant.c}</p>
@@ -328,14 +328,14 @@ export default function CampusMap() {
                 )}
                 <button
                   onClick={() => setIsQuizOpen(true)}
-                  className="w-full rounded-xl bg-[#68752B] px-4 py-3 font-semibold text-white transition-colors hover:bg-[#536022]"
+                  className="w-full rounded-full bg-[#68752B] px-4 py-3 font-bold text-[#F5F0E1] shadow-[0_4px_0_#2B140C] transition-all hover:-translate-y-0.5 hover:bg-[#7C8E34]"
                 >
                   {activePin.isCompleted ? "Review the quiz" : "Take the quiz"}
                 </button>
               </div>
             ) : (
               <div>
-                <p className="text-xs sm:text-sm font-medium mb-4 text-[#5A4739]">
+                <p className="rounded-2xl border-2 border-dashed border-[#9A7A45] bg-[#E8D8C0]/55 p-4 text-xs sm:text-sm font-medium mb-4 text-[#5A4739]">
                   {activePin.question}
                 </p>
                 {activePin.isCompleted ? (
@@ -353,7 +353,7 @@ export default function CampusMap() {
                       <button
                         key={idx}
                         onClick={() => handleAnswerSubmit(opt)}
-                        className="p-2.5 text-left text-xs sm:text-sm rounded-xl border-2 border-[#9A7A45]/40 hover:bg-[#B7BF72]/30 transition-colors font-medium text-[#3D2B20]"
+                        className="p-3 text-left text-xs sm:text-sm rounded-2xl border-2 border-[#2B140C]/60 hover:bg-[#B7BF72]/40 hover:border-[#68752B] transition-colors font-medium text-[#3D2B20]"
                       >
                         {opt}
                       </button>
@@ -365,7 +365,7 @@ export default function CampusMap() {
                     setIsQuizOpen(false);
                     setFeedback("");
                   }}
-                  className="mt-4 text-sm font-semibold text-[#68752B] underline underline-offset-2"
+                  className="mt-4 text-sm font-bold text-[#68752B] underline underline-offset-2"
                 >
                   Back to plant information
                 </button>

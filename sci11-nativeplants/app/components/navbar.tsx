@@ -33,6 +33,12 @@ export function Navbar({ foundPlants }: NavbarProps) {
             Home
           </Link>
           <Link 
+            href="/about-us" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all no-underline border border-ybrown ${isActive("/about-us") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20] hover:border hover:border-ybrown"}`}
+          >
+            About
+          </Link>
+          <Link 
             href="/plant-list" 
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all no-underline border border-ybrown ${isActive("/plant-list") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20] hover:border hover:border-ybrown"}`}
           >
@@ -50,13 +56,6 @@ export function Navbar({ foundPlants }: NavbarProps) {
           >
             References
           </Link>
-
-          {/* <Link 
-            href="/about-us" 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all no-underline border border-ybrown ${isActive("/about-us") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20] hover:border hover:border-ybrown"}`}
-          >
-            About
-          </Link> */}
         </nav>
       </div>
     </header>
