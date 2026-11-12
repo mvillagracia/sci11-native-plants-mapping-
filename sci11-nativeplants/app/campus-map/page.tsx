@@ -92,12 +92,12 @@ export default function CampusMap() {
     }
   ]);
 
-  const [activePinId, setActivePinId] = useState(null);
+  const [activePinId, setActivePinId] = useState<number | null>(null);
   const [feedback, setFeedback] = useState("");
 
   const activePin = pins.find((p) => p.id === activePinId);
 
-  const handleAnswerSubmit = (option) => {
+  const handleAnswerSubmit = (option: string) => {
     if (!activePin) return;
 
     if (option === activePin.correctAnswer) {
@@ -126,30 +126,31 @@ export default function CampusMap() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col text-[#273523] font-sans antialiased selection:bg-[#8FA876]/40 relative"
+      className="min-h-screen flex flex-col text-[#3D2B20] font-sans antialiased selection:bg-[#C99545]/40 relative"
       style={{
-        background: "radial-gradient(circle at 10% 8%, rgba(143,168,118,.25), transparent 38%), radial-gradient(circle at 92% 30%, rgba(176,199,152,.45), transparent 40%), #ECE5D2",
+        backgroundImage: "radial-gradient(circle at 10% 8%, rgba(183,191,114,.28), transparent 38%), radial-gradient(circle at 92% 30%, rgba(201,149,69,.18), transparent 40%)",
+        backgroundColor: "#F5F0E1",
         backgroundAttachment: "fixed"
       }}
     >
       <Navbar foundPlants={{}} />
       <main className="flex-1 w-full max-w-[1100px] mx-auto px-5 py-10">
         <div>
-          <h2 className="font-fraunces text-3xl sm:text-4xl font-bold text-[#2A4027] m-0">Locate the Plants</h2>
-          <p className="text-sm text-[#53614E] m-0 mt-1 max-w-[60ch]">
-            Find the plants in our campus, who knows maybe you'll find something more?
+          <h2 className="font-fraunces text-3xl sm:text-4xl font-bold text-[#3D2B20] m-0">Locate the Plants</h2>
+          <p className="text-sm text-[#5A4739] m-0 mt-1 max-w-[60ch]">
+            Find the plants in our campus; who knows, maybe you&apos;ll find something more?
           </p>
         </div>
         
-        <div className="relative block mx-auto rounded-xl overflow-hidden max-w-4xl w-full">
+        <div className="relative block mx-auto rounded-[26px] border-2 border-[#3D2B20] overflow-hidden max-w-4xl w-full shadow-[0_10px_24px_rgba(61,43,32,0.18)]">
           <img src="/map2.png" alt="UPB Campus Map" className="w-full h-auto" />
 
           {pins.map((pin) => {
-            let bgClass = "bg-gray-400 cursor-not-allowed";
+            let bgClass = "bg-[#9A7A45] cursor-not-allowed";
             if (pin.isCompleted) {
-              bgClass = "bg-green-600 cursor-pointer animate-pulse";
+              bgClass = "bg-[#68752B] cursor-pointer animate-pulse";
             } else if (pin.isUnlocked) {
-              bgClass = "bg-[#ebab49] cursor-pointer hover:scale-110 transition-transform";
+              bgClass = "bg-[#C99545] cursor-pointer hover:scale-110 transition-transform";
             }
 
             return (
@@ -166,7 +167,7 @@ export default function CampusMap() {
                   top: `${pin.y}%`,
                   transform: "translate(-50%, -50%)",
                 }}
-                className={`${bgClass} text-white border-2 border-white rounded-full w-5 h-5 text-[9px] md:w-8 md:h-8 md:text-sm flex items-center justify-center font-bold shadow-lg`}
+                className={`${bgClass} text-[#3D2B20] border-2 border-[#3D2B20] rounded-full w-5 h-5 text-[9px] md:w-8 md:h-8 md:text-sm flex items-center justify-center font-bold shadow-lg`}
                 title={pin.isUnlocked ? `${pin.id}: ${pin.name}` : `Locked (Complete previous level first)`}
               >
                 {pin.isCompleted ? <FaCheck/> : pin.id}
@@ -179,7 +180,7 @@ export default function CampusMap() {
 
       {activePin && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center p-4 z-50">
-          <div className="bg-[#ECE5D2] backdrop-blur p-6 rounded-xl shadow-2xl border border-[#8FA876] max-w-sm w-full relative">
+          <div className="bg-[#F5F0E1] backdrop-blur p-6 rounded-[26px] shadow-2xl border-2 border-[#3D2B20] max-w-sm w-full relative">
             <button 
               onClick={() => setActivePinId(null)}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 font-bold text-sm px-2 py-1"
@@ -187,7 +188,7 @@ export default function CampusMap() {
               <IoClose size={20}/>
             </button>
 
-            <h3 className="font-bold text-base text-[#273523] mb-2 pr-6">
+            <h3 className="font-bold text-base text-[#3D2B20] mb-2 pr-6">
               Location {activePin.id}: {activePin.name}
             </h3>
 
@@ -205,13 +206,13 @@ export default function CampusMap() {
              
             ) : (
               <div>
-                <p className="text-xs sm:text-sm font-medium mb-4 text-gray-700">{activePin.question}</p>
+                <p className="text-xs sm:text-sm font-medium mb-4 text-[#5A4739]">{activePin.question}</p>
                 <div className="flex flex-col gap-2">
                   {activePin.options.map((opt, idx) => (
                     <button
                       key={idx}
                       onClick={() => handleAnswerSubmit(opt)}
-                      className="p-2.5 text-left text-xs sm:text-sm rounded-lg border border-[#8FA876]/20 hover:bg-[#8FA876]/20 transition-colors font-medium text-[#273523]"
+                      className="p-2.5 text-left text-xs sm:text-sm rounded-xl border-2 border-[#9A7A45]/40 hover:bg-[#B7BF72]/30 transition-colors font-medium text-[#3D2B20]"
                     >
                       {opt}
                     </button>
