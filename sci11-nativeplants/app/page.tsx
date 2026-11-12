@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type CSSProperties } from "react";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
@@ -134,11 +135,38 @@ export default function Home() {
               </div>
 
               <div className="relative aspect-square max-w-[470px] mx-auto w-full">
-                <div className="absolute left-0 bottom-[2%] w-[36%] aspect-[3/4] bg-[#F5F0E1] p-1.5 shadow-[0_8px_20px_rgba(61,43,32,0.22)] text-[11px] animate-bob -rotate-6 flex items-center justify-center text-center border-2 border-[#3D2B20]/40">
-                  [ flower ]
+                <div className="absolute left-0 bottom-[2%] w-[36%] aspect-[3/4] bg-[#F5F0E1] p-1.5 shadow-[0_8px_20px_rgba(61,43,32,0.22)] animate-bob -rotate-6 border-2 border-[#3D2B20]/40">
+                  <div className="relative h-full w-full overflow-hidden">
+                    <Image
+                      src="/plants/1.2.jpg"
+                      alt="Agubangbang"
+                      fill
+                      sizes="170px"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
-                <div className="absolute right-0 top-[10%] w-[36%] aspect-[3/4] bg-[#F5F0E1] p-1.5 shadow-[0_8px_20px_rgba(61,43,32,0.22)] text-[11px] animate-bob rotate-6 flex items-center justify-center text-center border-2 border-[#3D2B20]/40" style={{ animationDelay: "1.5s" }}>
-                  [ flower ]
+                <div className="absolute right-0 top-[10%] w-[36%] aspect-[3/4] bg-[#F5F0E1] p-1.5 shadow-[0_8px_20px_rgba(61,43,32,0.22)] animate-bob rotate-6 border-2 border-[#3D2B20]/40" style={{ animationDelay: "1.5s" }}>
+                  <div className="relative h-full w-full overflow-hidden">
+                    <Image
+                      src="/plants/8.2.jpg"
+                      alt="Christella Fern"
+                      fill
+                      sizes="170px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="absolute left-[32%] top-[34%] z-10 w-[30%] aspect-[3/4] bg-[#F5F0E1] p-1.5 shadow-[0_8px_20px_rgba(61,43,32,0.22)] animate-bob rotate-2 border-2 border-[#3D2B20]/40" style={{ animationDelay: "0.7s" }}>
+                  <div className="relative h-full w-full overflow-hidden">
+                    <Image
+                      src="/plants/5.1.jpg"
+                      alt="Mayana"
+                      fill
+                      sizes="140px"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
