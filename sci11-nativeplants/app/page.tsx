@@ -208,26 +208,23 @@ export default function Home() {
             <div className="absolute w-[110px] h-8 bg-[#F5F0E1] border-2 border-[#2B140C]/70 rounded-full opacity-90 animate-drift right-[8%] top-[30%] scale-125" style={{ animationDelay: "2s" }} />
             
             <div className="relative max-w-[1100px] mx-auto text-center space-y-3">
-              <h2 className="font-fraunces text-3xl sm:text-5xl font-bold text-[#3D2B20]">idk what</h2>
+              <h2 className="font-fraunces text-3xl sm:text-5xl font-bold text-[#3D2B20]">Choose your quest</h2>
               <p className="max-w-[60ch] mx-auto text-[#3D2B20]/80">
                 Get to know the plants of your campus with{" "}
                 <span className="font-fraunces font-bold text-ybrown italic">Floracle!</span>
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5.5 mt-8 text-left">
-                <Link href="/campus-map" className="block text-left text-[#3D2B20] bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 shadow-[0_10px_24px_rgba(61,43,32,0.18)] hover:rotate-0 hover:-translate-y-1.5 transition-all -rotate-1 no-underline">
+
+              <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-left">
+                <Link href="/campus-map" className="block text-left text-[#3D2B20] bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 w-full sm:w-[350px] shadow-[0_10px_24px_rgba(61,43,32,0.18)] hover:rotate-0 hover:-translate-y-1.5 transition-all -rotate-1 no-underline">
                   <b className="grid place-items-center w-10 h-10 rounded-full bg-[#C99545] font-fraunces text-lg text-[#3D2B20] mb-2.5">1</b>
                   <h3 className="font-fraunces font-bold text-lg text-[#3D2B20] mb-1">Explore the map</h3>
                   <p className="text-xs text-[#5A4739] m-0">Follow the glowing pins and discover each plant.</p>
                 </Link>
-                <Link href="/plant-list" className="block text-left text-[#3D2B20] bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 shadow-[0_10px_24px_rgba(61,43,32,0.18)] hover:rotate-0 hover:-translate-y-1.5 transition-all no-underline">
+
+                <Link href="/plant-list" className="block text-left text-[#3D2B20] bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 w-full sm:w-[350px] shadow-[0_10px_24px_rgba(61,43,32,0.18)] hover:rotate-0 hover:-translate-y-1.5 transition-all rotate-1 no-underline">
                   <b className="grid place-items-center w-10 h-10 rounded-full bg-[#C99545] font-fraunces text-lg text-[#3D2B20] mb-2.5">2</b>
                   <h3 className="font-fraunces font-bold text-lg text-[#3D2B20] mb-1">Plant directory</h3>
                   <p className="text-xs text-[#5A4739] m-0">Browse all cataloged native species.</p>
-                </Link>
-                <Link href="/about-us" className="block text-left text-[#3D2B20] bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 shadow-[0_10px_24px_rgba(61,43,32,0.18)] hover:rotate-0 hover:-translate-y-1.5 transition-all rotate-1 no-underline">
-                  <b className="grid place-items-center w-10 h-10 rounded-full bg-[#C99545] font-fraunces text-lg text-[#3D2B20] mb-2.5">3</b>
-                  <h3 className="font-fraunces font-bold text-lg text-[#3D2B20] mb-1">About the project</h3>
-                  <p className="text-xs text-[#5A4739] m-0">Why these plants matter to the ecosystem.</p>
                 </Link>
               </div>
             </div>

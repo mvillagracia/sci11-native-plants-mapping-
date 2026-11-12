@@ -87,13 +87,13 @@ export default function PlantsPage() {
                   type="button"
                   onClick={() => setSelectedPlant(p)}
                   aria-label={`View details for ${p.n}`}
-                  className="px-4 py-2 cursor-pointer rounded-full bg-[#68752B] text-[#F5F0E1] font-bold text-xs shadow-[0_3px_0_#3D2B20] no-underline"
+                  className="px-4 py-2 cursor-pointer border-2 border-transparent rounded-full bg-[#68752B] text-[#F5F0E1] font-bold text-xs shadow-[0_3px_0_#3D2B20] no-underline hover:bg-[#E8D8C0] hover:text-ybrown hover:shadow-[0_3px_0_#9A7A45] hover:border-2 hover:border-ybrown/50 transition-all"
                 >
                   Details
                 </button>
                 <a
                   href="/campus-map"
-                  className="px-4 py-2 rounded-full bg-[#E8D8C0] text-[#3D2B20] font-bold text-xs shadow-[0_3px_0_#9A7A45] no-underline"
+                  className="px-4 py-2 border-2 border-transparent rounded-full bg-[#E8D8C0] text-[#3D2B20] font-bold text-xs shadow-[0_3px_0_#9A7A45] no-underline hover:bg-[#68752B] hover:text-[#F5F0E1] hover:shadow-[0_3px_0_#3D2B20] hover:border-2 hover:border-ybrown/50 transition-all"
                 >
                   Locate
                 </a>
@@ -122,7 +122,7 @@ export default function PlantsPage() {
               type="button"
               onClick={() => setSelectedPlant(null)}
               aria-label="Close plant details"
-              className="absolute cursor-pointer right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#E8D8C0] text-xl font-bold text-[#3D2B20] shadow-[0_2px_0_#9A7A45]"
+              className="absolute cursor-pointer right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#E8D8C0] text-xl font-bold text-[#3D2B20] shadow-[0_2px_0_#9A7A45] hover:bg-[#68752B] hover:text-[#F5F0E1] hover:shadow-[0_2px_0_#3D2B20] transition-all"
             >
               <X size={16} />
             </button>
