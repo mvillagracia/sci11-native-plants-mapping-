@@ -31,26 +31,24 @@ export function Navbar({ foundPlants }: NavbarProps) {
             Home
           </Link>
           <Link 
-            href="/campus-map" 
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/campus-map") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20]"}`}
-          >
-            Campus Map
-          </Link>
-          <Link 
             href="/plant-list" 
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/plant-list") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20]"}`}
           >
             Plants
           </Link>
           <Link 
+            href="/campus-map" 
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/campus-map") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20]"}`}
+          >
+            Campus Map
+          </Link>
+
+          <Link 
             href="/about-us" 
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors no-underline ${isActive("/about-us") ? "bg-[#68752B] text-[#F5F0E1]" : "text-[#5A4739] hover:bg-[#B7BF72]/40 hover:text-[#3D2B20]"}`}
           >
             About
           </Link>
-          {/* <span className="ml-1.5 px-3 py-1 rounded-full bg-[#C25936] text-white font-bold text-xs" title="Plants discovered">
-            ✿ {foundCount}/{PLANTS.length}
-          </span> */}
         </nav>
       </div>
     </header>
