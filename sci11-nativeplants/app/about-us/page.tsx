@@ -14,11 +14,13 @@ const MEMBERS = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col text-[#3D2B20] font-sans antialiased selection:bg-[#C99545]/40"
+    <div
+      className="min-h-screen flex flex-col text-[#3D2B20] font-sans antialiased selection:bg-[#C99545]/40"
       style={{
-        backgroundImage: "radial-gradient(circle at 10% 8%, rgba(183,191,114,.28), transparent 38%), radial-gradient(circle at 92% 30%, rgba(201,149,69,.18), transparent 40%)",
+        backgroundImage:
+          "radial-gradient(circle at 10% 8%, rgba(183,191,114,.28), transparent 38%), radial-gradient(circle at 92% 30%, rgba(201,149,69,.18), transparent 40%)",
         backgroundColor: "#F5F0E1",
-        backgroundAttachment: "fixed"
+        backgroundAttachment: "fixed",
       }}
     >
       <Navbar foundPlants={{}} />
@@ -30,20 +32,27 @@ export default function AboutPage() {
           </span>
           <h2 className="font-fraunces text-3xl sm:text-5xl font-bold text-[#3D2B20] leading-[1.08] mt-3 mb-0">
             The mystery ends. <br />
-            <span className="font-medium italic text-[#68752B]">The story continues.</span>
+            <span className="font-medium italic text-[#68752B]">
+              The story continues.
+            </span>
           </h2>
         </div>
 
         {/* content */}
         <div className="relative bg-[#F5F0E1] border-2 border-[#3D2B20] rounded-[26px] p-6 sm:p-10 shadow-[0_10px_24px_rgba(61,43,32,0.14)] space-y-5 text-left">
           <p className="text-[#5A4739] text-base sm:text-lg leading-relaxed m-0 text-center">
-            You followed the clues. You uncovered the plants. But the greatest discovery was never simply finding where they grow—it was understanding why they matter.
+            You followed the clues. You uncovered the plants. But the greatest
+            discovery was never simply finding where they grow—it was
+            understanding why they matter.
           </p>
           <p className="text-[#5A4739] text-base sm:text-lg leading-relaxed m-0 text-center">
-            Flora’s journal has led you to one final truth: the campus is more than buildings and pathways. It is a living ecosystem, rooted in stories of nature, connection, and survival.
+            Flora’s journal has led you to one final truth: the campus is more
+            than buildings and pathways. It is a living ecosystem, rooted in
+            stories of nature, connection, and survival.
           </p>
           <p className="text-[#5A4739] text-base sm:text-lg leading-relaxed m-0 text-center">
-            The investigation may be over, but the responsibility remains. Every plant deserves to be known. Every species deserves a place to grow.
+            The investigation may be over, but the responsibility remains. Every
+            plant deserves to be known. Every species deserves a place to grow.
           </p>
 
           <div className="mt-4 rounded-[20px] bg-[#B7BF72]/45 border-2 border-[#68752B] p-6 text-center">
