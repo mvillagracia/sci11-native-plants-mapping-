@@ -198,6 +198,7 @@ export default function CampusMap() {
                   <br/>
                   Answer: {activePin.correctAnswer} 
                 </p>
+                <img src={`/fairy/fairy${activePin.id}.png`} alt={`${activePin.name} Fairy`} className="w-full h-auto"/>
                 {/* <p className="text-green-700 font-medium py-4 text-sm text-center">
                   You have already unlocked and completed this location!
                 </p> */}
